@@ -1,0 +1,45 @@
+{
+    "name": "mmo/faker-images",
+    "type": "library",
+    "description": "Different images provider for Faker",
+    "keywords": [
+        "faker",
+        "images",
+        "picsum",
+        "provider"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcin Morawski",
+            "email": "marcin@morawskim.pl"
+        }
+    ],
+    "require": {
+        "php": "^5.3.3 || ^7.0",
+        "fzaninotto/faker": "~1.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "squizlabs/php_codesniffer": "^2.9.2"
+    },
+    "suggest": {
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mmo\\Faker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mmo\\Faker\\Test\\": "test/Faker/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "phpcs": "phpcs --standard=PSR2 src -n"
+    }
+}

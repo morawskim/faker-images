@@ -1,0 +1,46 @@
+language: php
+
+dist: precise
+
+jobs:
+  include:
+    - php: 5.3
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+    - php: 7.0
+    - php: 7.1
+    - php: 7.2
+    - php: 7.3
+    - php: 7.4
+      dist: bionic
+    - php: nightly
+
+matrix:
+    allow_failures:
+        - nightly
+
+env:
+  global:
+    - DEFAULT_COMPOSER_FLAGS="--prefer-dist --no-interaction --no-progress --optimize-autoloader"
+  matrix:
+    - PREFER_LOWEST="--prefer-lowest"
+    - PREFER_LOWEST=""
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+install:
+  - travis_retry composer update $DEFAULT_COMPOSER_FLAGS $PREFER_LOWEST
+
+before_script:
+  - php --version
+  - composer --version
+
+script:
+  - composer run phpcs
+  - vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
