@@ -13,6 +13,10 @@ $ composer require --dev mmo/faker-images
 ## Usage
 
 ```php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
 $faker = Faker\Factory::create();
 $faker->addProvider(new \Mmo\Faker\PicsumProvider($faker));
 
