@@ -11,7 +11,7 @@ class PicsumProvider extends BaseProvider
         $baseUrl = 'https://picsum.photos/';
         $url = '';
         if ($id) {
-            $url = 'id/' . $id;
+            $url = 'id/' . $id . '/';
         }
         $url .= "{$width}/{$height}";
 

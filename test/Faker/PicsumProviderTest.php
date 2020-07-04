@@ -27,6 +27,11 @@ class PicsumProviderTest extends PHPUnit_Framework_TestCase
         $this->assertRegExp('#^https://picsum\.photos/800/400\?grayscale=#', PicsumProvider::picsumUrl(800, 400, null, false, true));
     }
 
+    public function testPicsumWithIdAndCustomWidthAndHeight()
+    {
+        $this->assertRegExp('#^https://picsum.photos/id/871/800/400#', PicsumProvider::picsumUrl(800, 400, 871));
+    }
+
     public function testPicsumUrlWithGrayAndBlur()
     {
         $imageUrl = PicsumProvider::picsumUrl(
