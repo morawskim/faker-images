@@ -36,7 +36,7 @@ class PicsumProvider extends BaseProvider
         return $baseUrl . $url . $queryString;
     }
 
-    public static function picsumUrlStatic($width = 640, $height = 480, $gray = false, $blur = null)
+    public static function picsumStaticRandomUrl($width = 640, $height = 480, $gray = false, $blur = null)
     {
         $baseUrl = 'https://picsum.photos/';
 
