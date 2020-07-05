@@ -14,25 +14,7 @@ class PicsumProvider extends BaseProvider
             $url = 'id/' . $id . '/';
         }
         $url .= "{$width}/{$height}";
-
-        $queryParams = array();
-        if ($gray) {
-            $queryParams['grayscale'] = '';
-        }
-
-        if ($blur) {
-            $queryParams['blur'] = '';
-        }
-
-        if ($randomize) {
-            $queryParams['random'] = static::randomNumber(5, true);
-        }
-
-        $queryString = '';
-        if (!empty($queryParams)) {
-            $queryString = '?' . http_build_query($queryParams);
-        }
-
+        $queryString = self::buildQueryString($gray, $blur, $randomize);
         return $baseUrl . $url . $queryString;
     }
 
@@ -41,20 +23,7 @@ class PicsumProvider extends BaseProvider
         $baseUrl = 'https://picsum.photos/';
 
         $url = 'seed/' . uniqid() . '/' . "{$width}/{$height}";
-
-        $queryParams = array();
-        if ($gray) {
-            $queryParams['grayscale'] = '';
-        }
-
-        if ($blur) {
-            $queryParams['blur'] = '';
-        }
-
-        $queryString = '';
-        if (!empty($queryParams)) {
-            $queryString = '?' . http_build_query($queryParams);
-        }
+        $queryString = self::buildQueryString($gray, $blur, null);
 
         return $baseUrl . $url . $queryString;
     }
@@ -121,5 +90,30 @@ class PicsumProvider extends BaseProvider
         }
 
         return $fullPath ? $filepath : $filename;
+    }
+
+    /**
+     * @param boolean|null $gray
+     * @param int|null $blur
+     * @param boolean|null $randomize
+     * @return string
+     */
+    private static function buildQueryString($gray, $blur, $randomize)
+    {
+        $queryParams = array();
+        if ($gray) {
+            $queryParams['grayscale'] = '';
+        }
+        if ($blur) {
+            $queryParams['blur'] = '';
+        }
+        if ($randomize) {
+            $queryParams['random'] = static::randomNumber(5, true);
+        }
+        $queryString = '';
+        if (!empty($queryParams)) {
+            $queryString = '?' . http_build_query($queryParams);
+        }
+        return $queryString;
     }
 }

@@ -53,7 +53,19 @@ class PicsumProviderTest extends PHPUnit_Framework_TestCase
             400
         );
 
-        $this->assertRegExp('#^https:\/\/picsum\.photos\/seed\/[A-Za-z0-9]+\/800\/400#', $imageUrl);
+        $this->assertRegExp('#^https://picsum\.photos/seed/[A-Za-z0-9]+/800/400#', $imageUrl);
+    }
+
+    public function testPicsumStaticRandomUrlWithCustomParameters()
+    {
+        $imageUrl = PicsumProvider::picsumStaticRandomUrl(
+            800,
+            400,
+            true,
+            true
+        );
+
+        $this->assertRegExp('#^https://picsum\.photos/seed/[A-Za-z0-9]+/800/400\?grayscale=&blur=#', $imageUrl);
     }
 
     public function testpicsumStaticRandomUrlWithGrayAndBlur()
