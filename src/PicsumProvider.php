@@ -36,6 +36,29 @@ class PicsumProvider extends BaseProvider
         return $baseUrl . $url . $queryString;
     }
 
+    public static function picsumStaticRandomUrl($width = 640, $height = 480, $gray = false, $blur = null)
+    {
+        $baseUrl = 'https://picsum.photos/';
+
+        $url = 'seed/' . uniqid() . '/' . "{$width}/{$height}";
+
+        $queryParams = array();
+        if ($gray) {
+            $queryParams['grayscale'] = '';
+        }
+
+        if ($blur) {
+            $queryParams['blur'] = '';
+        }
+
+        $queryString = '';
+        if (!empty($queryParams)) {
+            $queryString = '?' . http_build_query($queryParams);
+        }
+
+        return $baseUrl . $url . $queryString;
+    }
+
     /**
      * Download a remote random image to disk and return its location
      *
