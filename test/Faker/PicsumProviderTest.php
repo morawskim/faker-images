@@ -105,4 +105,49 @@ class PicsumProviderTest extends PHPUnit_Framework_TestCase
             unlink($file);
         }
     }
+
+    /**
+     * @dataProvider picusmImageExtensionsProvider
+     *
+     * @param string $imageExtension
+     */
+    public function testPicsumUrlWithImageExtension($imageExtension)
+    {
+        $imageUrl = PicsumProvider::picsumUrl(
+            800,
+            400,
+            null,
+            false,
+            true,
+            true,
+            $imageExtension
+        );
+        $expectedString = sprintf('https://picsum.photos/800/400.%s?grayscale=&blur=', $imageExtension);
+
+        $this->assertSame($expectedString, $imageUrl);
+    }
+
+    public function testNotSupportedImageExtension()
+    {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('Invalid image extension');
+
+        PicsumProvider::picsumUrl(
+            800,
+            400,
+            null,
+            false,
+            true,
+            true,
+            'wrongExtension'
+        );
+    }
+
+    public function picusmImageExtensionsProvider()
+    {
+        return array(
+            array(PicsumProvider::JPG_IMAGE),
+            array(PicsumProvider::WEBP_IMAGE),
+        );
+    }
 }
