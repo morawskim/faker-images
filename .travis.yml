@@ -1,25 +1,12 @@
 language: php
 
-dist: precise
-
-jobs:
-  include:
-    - php: 7.1
-      dist: bionic
-    - php: 7.2
-      dist: bionic
-    - php: 7.3
-      dist: bionic
-    - php: 7.4
-      dist: bionic
-    - php: 8.0
-      dist: bionic
-    - php: nightly
-
 matrix:
-    allow_failures:
-        - nightly
-
+    include:
+      - php: 7.1
+      - php: 7.2
+      - php: 7.3
+      - php: 7.4
+      - php: 8.0
 env:
   global:
     - DEFAULT_COMPOSER_FLAGS="--prefer-dist --no-interaction --no-progress --optimize-autoloader"
