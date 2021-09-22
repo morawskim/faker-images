@@ -1,7 +1,7 @@
 Faker Images Provider
 ====================
 
-[picsum.photos](https://picsum.photos/) provider for [Faker](https://github.com/fzaninotto/Faker).
+[picsum.photos](https://picsum.photos/) provider for [Faker](https://github.com/FakerPHP/Faker).
 
 ## Install
 Install the Providers by adding `mmo/faker-images` to your composer.json or from CLI:
