@@ -16,8 +16,8 @@
         }
     ],
     "require": {
-        "php": "^5.3.3 || ^7.0",
-        "fzaninotto/faker": "~1.4"
+        "php": "^7.1 || ^8.0",
+        "fakerphp/faker": "^1.9"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
