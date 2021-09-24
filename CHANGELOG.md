@@ -1,13 +1,21 @@
 # Changelog
 
+## 0.5.0
+
+* Update dev dependencies (PHPUnit and php_codesniffer)
+
+## 0.4.0
+
+* [#4 Use supported faker](https://github.com/morawskim/faker-images/pull/4)
+
 ## 0.3.0
 
-* [Feature] #3 - A parameter to set an image extension
+* [Feature] [#3 - A parameter to set an image extension](https://github.com/morawskim/faker-images/issues/3)
 
 ## 0.2.0
 
-* Merge PR #1 - Picsum Static Random Image Support
-* Fix #2 - Add slash after id
+* Merge PR [#1 - Picsum Static Random Image Support](https://github.com/morawskim/faker-images/pull/1)
+* Fix [#2 - Add slash after id](https://github.com/morawskim/faker-images/issues/2)
 
 ## 0.1.0
 
