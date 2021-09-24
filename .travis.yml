@@ -3,10 +3,14 @@ language: php
 matrix:
     include:
       - php: 7.1
+        env: XDEBUG=2
       - php: 7.2
+        env: XDEBUG=2
       - php: 7.3
+        env: XDEBUG=3
       - php: 7.4
-      - php: 8.0
+        env: XDEBUG=3
+      #- php: 8.0
 env:
   global:
     - DEFAULT_COMPOSER_FLAGS="--prefer-dist --no-interaction --no-progress --optimize-autoloader"
@@ -27,7 +31,9 @@ before_script:
 
 script:
   - composer run phpcs
-  - vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
+  - echo Xdebug env - $XDEBUG
+  - if [[ "$XDEBUG" == "2" ]]; then vendor/bin/phpunit --verbose --coverage-clover=coverage.xml; fi
+  - if [[ "$XDEBUG" == "3" ]]; then php -dxdebug.mode=coverage vendor/bin/phpunit --verbose --coverage-clover=coverage.xml; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

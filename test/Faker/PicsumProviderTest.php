@@ -3,9 +3,9 @@
 namespace Mmo\Faker\Test;
 
 use Mmo\Faker\PicsumProvider;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class PicsumProviderTest extends PHPUnit_Framework_TestCase
+class PicsumProviderTest extends \PHPUnit\Framework\TestCase
 {
     public function testPicsumUrlUses640x680AsTheDefaultSize()
     {
