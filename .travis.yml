@@ -2,21 +2,25 @@ language: php
 
 matrix:
     include:
-      - php: 7.1
-        env: XDEBUG=2
       - php: 7.2
-        env: XDEBUG=2
+        env: XDEBUG=2 PREFER_LOWEST="--prefer-lowest"
+      - php: 7.2
+        env: XDEBUG=2 PREFER_LOWEST=""
       - php: 7.3
-        env: XDEBUG=3
+        env: XDEBUG=3 PREFER_LOWEST="--prefer-lowest"
+      - php: 7.3
+        env: XDEBUG=3 PREFER_LOWEST=""
       - php: 7.4
-        env: XDEBUG=3
-      #- php: 8.0
+        env: XDEBUG=3 PREFER_LOWEST="--prefer-lowest"
+      - php: 7.4
+        env: XDEBUG=3 PREFER_LOWEST=""
+      - php: 8.0
+        env: XDEBUG=3 PREFER_LOWEST="--prefer-lowest"
+      - php: 8.0
+        env: XDEBUG=3 PREFER_LOWEST=""
 env:
   global:
     - DEFAULT_COMPOSER_FLAGS="--prefer-dist --no-interaction --no-progress --optimize-autoloader"
-  matrix:
-    - PREFER_LOWEST="--prefer-lowest"
-    - PREFER_LOWEST=""
 
 cache:
   directories:
