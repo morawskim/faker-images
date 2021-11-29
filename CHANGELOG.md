@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0
+
+* Add LoremSpace provider
+
 ## 0.5.0
 
 * Update dev dependencies (PHPUnit and php_codesniffer)
