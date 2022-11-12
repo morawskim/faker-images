@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0
+
+* LoremSpace - add car category
+
+## 0.6.1
+
+* Add User-Agent to fix Cloudflare 403
+
 ## 0.6.0
 
 * Add LoremSpace provider
