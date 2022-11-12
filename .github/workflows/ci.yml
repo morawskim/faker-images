@@ -1,0 +1,83 @@
+name: "CI"
+
+on:
+  push:
+    branches:
+      - '**'
+    pull_request:
+      branches:
+        - 'master'
+
+env:
+  DEFAULT_COMPOSER_FLAGS: "--prefer-dist --no-interaction --no-progress --optimize-autoloader"
+
+jobs:
+  tests:
+    name: "Run tests"
+    runs-on: "ubuntu-20.04"
+    strategy:
+      matrix:
+        include:
+          - php-version: 7.2
+            xdebug: "xdebug2"
+            prefer-lowest: "--prefer-lowest"
+          - php-version: 7.2
+            xdebug: "xdebug2"
+            prefer-lowest: ""
+
+          - php-version: 7.3
+            xdebug: "xdebug"
+            prefer-lowest: "--prefer-lowest"
+          - php-version: 7.3
+            xdebug: "xdebug"
+            prefer-lowest: ""
+
+          - php-version: 7.4
+            xdebug: "xdebug"
+            prefer-lowest: "--prefer-lowest"
+          - php-version: 7.4
+            xdebug: "xdebug"
+            prefer-lowest: ""
+
+          - php-version: 8.0
+            xdebug: "xdebug"
+            prefer-lowest: "--prefer-lowest"
+          - php-version: 8.0
+            xdebug: "xdebug"
+            prefer-lowest: ""
+
+          # for php 8.1 we skip prefer-lowest test due to too old version of phpunit (8.5.12)
+          # PHP Fatal error:  Cannot acquire reference to $GLOBALS in
+          # /home/runner/work/faker-images/faker-images/vendor/phpunit/phpunit/src/Util/Configuration.php on line 407
+          - php-version: 8.1
+            xdebug: "xdebug"
+            prefer-lowest: ""
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "${{ matrix.php-version }}"
+          coverage: "${{ matrix.xdebug }}"
+          tools: composer
+      - name: "Print php and composer version"
+        run: |
+          php --version
+          composer --version
+      - name: "composer install"
+        run: |
+          echo DEFAULT_COMPOSER_FLAGS $DEFAULT_COMPOSER_FLAGS
+          echo PREFER_LOWEST ${{ matrix.prefer-lowest }}
+          composer update $DEFAULT_COMPOSER_FLAGS ${{ matrix.prefer-lowest }}
+      - name: "Run phpcs"
+        run: composer run phpcs
+      - name: "Run phpunit"
+        run: |
+          echo Xdebug env - ${{ matrix.xdebug }}
+          if [[ "${{ matrix.xdebug }}" == "xdebug2" ]]; then vendor/bin/phpunit --verbose --coverage-clover=coverage.xml; fi
+          if [[ "${{ matrix.xdebug }}" == "xdebug" ]]; then php -dxdebug.mode=coverage vendor/bin/phpunit --verbose --coverage-clover=coverage.xml; fi
+      - uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: false
+          verbose: true
