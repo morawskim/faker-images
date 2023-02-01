@@ -22,6 +22,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $faker = Faker\Factory::create();
 $faker->addProvider(new \Mmo\Faker\PicsumProvider($faker));
 $faker->addProvider(new \Mmo\Faker\LoremSpaceProvider($faker));
+$faker->addProvider(new \Mmo\Faker\LoremFacesProvider($faker));
 
 // picsum
 // size
@@ -47,4 +48,13 @@ $path = $faker->loremSpace(\Mmo\Faker\LoremSpaceProvider::CATEGORY_FACE); // /tm
 // Signature
 // loremSpaceUrl($category, $width = 640, $height = 480)
 // loremSpace($category, $dir = null, $width = 640, $height = 480, $fullPath = true)
+
+// lorem faces
+$url = $faker->loremFacesUrl(1234); //https://faces-img.xcdn.link/image-lorem-face-1234.jpg
+// download random image to tmp dir
+$path = $faker->loremFaces();
+
+// Signature
+// loremFacesUrl($imageId = null) // if imageId is null random value will be used
+// loremFaces($size = 120, $imageId = null, $dir = null, $fullPath = true)
 ```
