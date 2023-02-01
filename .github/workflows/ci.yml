@@ -46,10 +46,14 @@ jobs:
             xdebug: "xdebug"
             prefer-lowest: ""
 
-          # for php 8.1 we skip prefer-lowest test due to too old version of phpunit (8.5.12)
+          # for php 8.1+ we skip prefer-lowest test due to too old version of phpunit (8.5.12)
           # PHP Fatal error:  Cannot acquire reference to $GLOBALS in
           # /home/runner/work/faker-images/faker-images/vendor/phpunit/phpunit/src/Util/Configuration.php on line 407
           - php-version: 8.1
+            xdebug: "xdebug"
+            prefer-lowest: ""
+
+          - php-version: 8.2
             xdebug: "xdebug"
             prefer-lowest: ""
     steps:
