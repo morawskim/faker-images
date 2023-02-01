@@ -1,6 +1,8 @@
 Faker Images Provider
 ====================
 
+[![codecov](https://codecov.io/gh/morawskim/faker-images/branch/master/graph/badge.svg?token=02uc4Nt6nl)](https://codecov.io/gh/morawskim/faker-images)
+
 [picsum.photos](https://picsum.photos/) provider for [Faker](https://github.com/FakerPHP/Faker).
 
 [lorem.space](https://lorem.space/) provider for [Faker](https://github.com/FakerPHP/Faker).

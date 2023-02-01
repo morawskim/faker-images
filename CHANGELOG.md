@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0
+
+* Migrate from travis-ci to GitHub actions
+* Run test also on PHP 8.2
+* Add LoremFaces provider
+
 ## 0.7.0
 
 * LoremSpace - add car category
