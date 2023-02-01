@@ -7,6 +7,8 @@ Faker Images Provider
 
 [lorem.space](https://lorem.space/) provider for [Faker](https://github.com/FakerPHP/Faker).
 
+[lorem.faces](https://loremfaces.com/) provider for [Faker](https://github.com/FakerPHP/Faker).
+
 ## Install
 Install the Providers by adding `mmo/faker-images` to your composer.json or from CLI:
 
