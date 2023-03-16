@@ -16,7 +16,11 @@ class LoremSpaceProvider extends BaseProvider
     public const CATEGORY_SHOES = 'shoes';
     public const CATEGORY_WATCH = 'watch';
     public const CATEGORY_FURNITURE = 'furniture';
+    public const CATEGORY_PIZZA = 'pizza';
+    public const CATEGORY_BURGER = 'burger';
+    public const CATEGORY_DRINK = 'drink';
     public const CATEGORY_CAR = 'car';
+    public const CATEGORY_HOUSE = 'house';
 
     private static $CATEGORIES = [
         self::CATEGORY_MOVIE,
@@ -28,7 +32,11 @@ class LoremSpaceProvider extends BaseProvider
         self::CATEGORY_SHOES,
         self::CATEGORY_WATCH,
         self::CATEGORY_FURNITURE,
+        self::CATEGORY_PIZZA,
+        self::CATEGORY_BURGER,
+        self::CATEGORY_DRINK,
         self::CATEGORY_CAR,
+        self::CATEGORY_HOUSE,
     ];
 
     public static function loremSpaceUrl($category, $width = 640, $height = 480)
