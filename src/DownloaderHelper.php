@@ -17,7 +17,7 @@ class DownloaderHelper
      * @param bool $fullPath Return full path to file or only filename
      * @return bool|\RuntimeException|string
      */
-    public static function fetchImage($url, $dir = null, $fullPath = true)
+    public static function fetchImage($url, $dir = null, $fullPath = true, $fileExtension = 'jpg')
     {
         $dir = $dir === null ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
         // Validate directory path
@@ -28,7 +28,7 @@ class DownloaderHelper
         // Generate a random filename. Use the server address so that a file
         // generated at the same time on a different server won't have a collision.
         $name = md5(uniqid(empty($_SERVER['SERVER_ADDR']) ? '' : $_SERVER['SERVER_ADDR'], true));
-        $filename = $name .'.jpg';
+        $filename = $name .'.' . $fileExtension;
         $filepath = $dir . DIRECTORY_SEPARATOR . $filename;
 
         // save file

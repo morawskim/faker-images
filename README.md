@@ -7,6 +7,8 @@ Faker Images Provider
 
 [lorem.space](https://lorem.space/) provider for [Faker](https://github.com/FakerPHP/Faker).
 
+[fakeimg](https://fakeimg.pl/) provider for [Faker](https://github.com/FakerPHP/Faker).
+
 ## Install
 Install the Providers by adding `mmo/faker-images` to your composer.json or from CLI:
 
@@ -24,6 +26,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $faker = Faker\Factory::create();
 $faker->addProvider(new \Mmo\Faker\PicsumProvider($faker));
 $faker->addProvider(new \Mmo\Faker\LoremSpaceProvider($faker));
+$faker->addProvider(new \Mmo\Faker\FakeimgProvider($faker));
 
 // picsum
 // size
@@ -49,4 +52,13 @@ $path = $faker->loremSpace(\Mmo\Faker\LoremSpaceProvider::CATEGORY_FACE); // /tm
 // Signature
 // loremSpaceUrl($category, $width = 640, $height = 480)
 // loremSpace($category, $dir = null, $width = 640, $height = 480, $fullPath = true)
+
+// Fakeimg
+$url = $faker->fakeImgUrl(); // https://fakeimg.pl/640x480/CCCCCC/939393
+// download image to tmp dir
+$path = $faker->fakeImg(); // /tmp/9aa6c1c7e4bc1901084997b0efa44f13.png
+
+// Signature
+// fakeImgUrl($width = 640, $height = 480, $text = '', array $backgroundColor = [], array $fontColor = [], $retina = false)
+// fakeImg($dir = null, $width = 640, $height = 480, $fullPath = true, $text = '', array $backgroundColor = [], array $fontColor = [], $retina = false)
 ```
