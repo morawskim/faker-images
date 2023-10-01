@@ -55,6 +55,8 @@ $path = $faker->loremSpace(\Mmo\Faker\LoremSpaceProvider::CATEGORY_FACE); // /tm
 
 // Fakeimg
 $url = $faker->fakeImgUrl(); // https://fakeimg.pl/640x480/CCCCCC/939393
+// if you use PHP8+ you can use named argument and use helper function to create color
+//$url = $faker->fakeImgUrl(backgroundColor: \Mmo\Faker\FakeimgUtils::createColor(255, 0, 0));
 // download image to tmp dir
 $path = $faker->fakeImg(); // /tmp/9aa6c1c7e4bc1901084997b0efa44f13.png
 
