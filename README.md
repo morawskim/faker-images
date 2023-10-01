@@ -45,6 +45,8 @@ $path = $faker->picsum(null, 400, 400, true); // /tmp/72c04225dd87efc261d29d3a05
 // picsum($dir = null, $width = 640, $height = 480, $fullPath = true, $id = null, $randomize = true, $gray = false, $blur = null, $imageExtension)
 
 // lorem space
+// you can use a self owned service, if there are problems with default one
+// LoremSpaceProvider::setApiUrl('https://my-self-owned-lorem-space-service.example.com/image/');
 $url = $faker->loremSpaceUrl(\Mmo\Faker\LoremSpaceProvider::CATEGORY_FACE); // https://api.lorem.space/image/face?w=640&h=480
 // download image to tmp dir
 $path = $faker->loremSpace(\Mmo\Faker\LoremSpaceProvider::CATEGORY_FACE); // /tmp/fd3646c544a9a46bd16d1d097e737ee4.jpg

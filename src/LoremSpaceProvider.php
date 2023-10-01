@@ -3,7 +3,6 @@
 namespace Mmo\Faker;
 
 use Faker\Provider\Base as BaseProvider;
-use InvalidArgumentException;
 
 class LoremSpaceProvider extends BaseProvider
 {
@@ -18,18 +17,17 @@ class LoremSpaceProvider extends BaseProvider
     public const CATEGORY_FURNITURE = 'furniture';
     public const CATEGORY_CAR = 'car';
 
-    private static $CATEGORIES = [
-        self::CATEGORY_MOVIE,
-        self::CATEGORY_GAME,
-        self::CATEGORY_ALBUM,
-        self::CATEGORY_BOOK,
-        self::CATEGORY_FACE,
-        self::CATEGORY_FASHION,
-        self::CATEGORY_SHOES,
-        self::CATEGORY_WATCH,
-        self::CATEGORY_FURNITURE,
-        self::CATEGORY_CAR,
-    ];
+    private static $API_URL = 'https://api.lorem.space/image/';
+
+    public static function setApiUrl(string $url)
+    {
+        self::$API_URL = rtrim($url, '/') . '/';
+    }
+
+    public static function getApiUrl()
+    {
+        return self::$API_URL;
+    }
 
     public static function loremSpaceUrl($category, $width = 640, $height = 480)
     {
@@ -52,13 +50,9 @@ class LoremSpaceProvider extends BaseProvider
         return '?' . http_build_query($queryParams);
     }
 
-    private static function buildLoremSpaceUrl($category, $queryString)
+    protected static function buildLoremSpaceUrl($category, $queryString)
     {
-        if (!in_array($category, self::$CATEGORIES, true)) {
-            throw new InvalidArgumentException(sprintf('Invalid image category "%s"', $category));
-        }
-
-        $baseUrl = 'https://api.lorem.space/image/';
+        $baseUrl = self::getApiUrl();
 
         return $baseUrl . $category . $queryString;
     }
