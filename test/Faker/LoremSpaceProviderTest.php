@@ -67,12 +67,6 @@ class LoremSpaceProviderTest extends TestCase
         yield 'too_big' => [3000, 3000, 2000];
     }
 
-    public function testLoremSpaceDownloadWithDefaults()
-    {
-        $file = LoremSpaceProvider::loremSpace(LoremSpaceProvider::CATEGORY_FACE, sys_get_temp_dir());
-        $this->checkDownloadedFile($file);
-    }
-
     public function testSelfOwnedLoremSpaceUrl()
     {
         $selfOwnedLoremSpaceUrl = getenv('LOREM_SPACE_SELF_OWNED_URL');
