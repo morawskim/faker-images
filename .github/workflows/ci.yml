@@ -17,6 +17,8 @@ jobs:
   tests:
     name: "Run tests"
     runs-on: "ubuntu-20.04"
+    env:
+      LOREM_SPACE_SELF_OWNED_URL: http://localhost:8080/image/
     strategy:
       matrix:
         include:
@@ -58,6 +60,11 @@ jobs:
           - php-version: 8.2
             xdebug: "xdebug"
             prefer-lowest: ""
+    services:
+      loremspace:
+        image: morawskim/lorem-space-backend
+        ports:
+          - 8080:8080
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v3"
