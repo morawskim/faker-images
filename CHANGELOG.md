@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0
+
+* Remove LoremFaces provider (Looks like is not available anymore)
+* Add Fakeimg provider
+* Add method to overwrite the URL for LoremSpace provider.  
+ The default value is https://api.lorem.space/, but often this service is down.
+ Check issue https://github.com/manasky/lorem.space/issues/8.
+
 ## 0.8.0
 
 * Migrate from travis-ci to GitHub actions
