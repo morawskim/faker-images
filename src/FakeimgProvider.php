@@ -70,7 +70,7 @@ class FakeimgProvider extends BaseProvider
 
 
         return sprintf(
-            'https://fakeimg.pl/%dx%d/%s/%s%s',
+            'https://fakeimg.ryd.tools/%dx%d/%s/%s%s',
             $width,
             $height,
             self::colorToString($backgroundColor, 'CCCCCC'),
