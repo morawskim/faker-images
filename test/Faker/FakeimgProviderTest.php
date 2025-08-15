@@ -10,7 +10,7 @@ class FakeimgProviderTest extends TestCase
     public function testFakeImgDefaultParameters()
     {
         $this->assertSame(
-            'https://fakeimg.pl/640x480/CCCCCC/939393',
+            'https://fakeimg.ryd.tools/640x480/CCCCCC/939393',
             FakeimgProvider::fakeImgUrl()
         );
     }
@@ -18,7 +18,7 @@ class FakeimgProviderTest extends TestCase
     public function testFakeImgCustomWidthAndHeight()
     {
         $this->assertSame(
-            'https://fakeimg.pl/800x600/CCCCCC/939393',
+            'https://fakeimg.ryd.tools/800x600/CCCCCC/939393',
             FakeimgProvider::fakeImgUrl(800, 600)
         );
     }
@@ -26,7 +26,7 @@ class FakeimgProviderTest extends TestCase
     public function testFakeImgCustomText()
     {
         $this->assertSame(
-            'https://fakeimg.pl/800x600/CCCCCC/939393?text=foo+%26+bar',
+            'https://fakeimg.ryd.tools/800x600/CCCCCC/939393?text=foo+%26+bar',
             FakeimgProvider::fakeImgUrl(800, 600, 'foo & bar')
         );
     }
@@ -34,7 +34,7 @@ class FakeimgProviderTest extends TestCase
     public function testFakeImgAllParameteres()
     {
         $this->assertSame(
-            'https://fakeimg.pl/800x600/649664/000000?retina=1&text=foo+%26+bar',
+            'https://fakeimg.ryd.tools/800x600/649664/000000?retina=1&text=foo+%26+bar',
             FakeimgProvider::fakeImgUrl(
                 800,
                 600,
@@ -49,7 +49,7 @@ class FakeimgProviderTest extends TestCase
     public function testFakeImgColorsWithAlpha()
     {
         $this->assertSame(
-            'https://fakeimg.pl/800x600/649664,128/000000,10?retina=1&text=foo+%26+bar',
+            'https://fakeimg.ryd.tools/800x600/649664,128/000000,10?retina=1&text=foo+%26+bar',
             FakeimgProvider::fakeImgUrl(
                 800,
                 600,
@@ -64,7 +64,7 @@ class FakeimgProviderTest extends TestCase
     public function testFakeImgColors()
     {
         $this->assertSame(
-            'https://fakeimg.pl/800x600/FF0000,128/000000,10?retina=1&text=foo+%26+bar',
+            'https://fakeimg.ryd.tools/800x600/FF0000,128/000000,10?retina=1&text=foo+%26+bar',
             FakeimgProvider::fakeImgUrl(
                 800,
                 600,
