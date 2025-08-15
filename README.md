@@ -7,7 +7,7 @@ Faker Images Provider
 
 [lorem.space](https://lorem.space/) provider for [Faker](https://github.com/FakerPHP/Faker).
 
-[fakeimg](https://fakeimg.pl/) provider for [Faker](https://github.com/FakerPHP/Faker).
+[fakeimg](https://fakeimg.ryd.tools/) provider for [Faker](https://github.com/FakerPHP/Faker).
 
 ## Install
 Install the Providers by adding `mmo/faker-images` to your composer.json or from CLI:
@@ -56,7 +56,7 @@ $path = $faker->loremSpace(\Mmo\Faker\LoremSpaceProvider::CATEGORY_FACE); // /tm
 // loremSpace($category, $dir = null, $width = 640, $height = 480, $fullPath = true)
 
 // Fakeimg
-$url = $faker->fakeImgUrl(); // https://fakeimg.pl/640x480/CCCCCC/939393
+$url = $faker->fakeImgUrl(); // https://fakeimg.ryd.tools/640x480/CCCCCC/939393
 // if you use PHP8+ you can use named argument and use helper function to create color
 //$url = $faker->fakeImgUrl(backgroundColor: \Mmo\Faker\FakeimgUtils::createColor(255, 0, 0));
 // download image to tmp dir
