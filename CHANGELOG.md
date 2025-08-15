@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.1
+
+* Change domain for FakeImg provider
+
 ## 0.9.0
 
 * Remove LoremFaces provider (Looks like is not available anymore)
