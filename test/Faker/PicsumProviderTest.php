@@ -89,18 +89,21 @@ class PicsumProviderTest extends \PHPUnit\Framework\TestCase
         $this->assertRegexp('#random=\d{5}#', $splitUrl[1]);
     }
 
-    public function testPicsumDownloadWithDefaults()
+    /**
+     * @dataProvider picusmImageExtensionsProvider
+     */
+    public function testPicsumDownloadWithExtension($extension)
     {
-        $file = PicsumProvider::picsum(sys_get_temp_dir());
+        $file = PicsumProvider::picsum(sys_get_temp_dir(), 640, 480, true, null, true, false, null, $extension);
         $this->assertFileExists($file);
         if (function_exists('getimagesize')) {
-            list($width, $height, $type) = getimagesize($file);
+            list($width, $height) = getimagesize($file);
             $this->assertEquals(640, $width);
             $this->assertEquals(480, $height);
-            $this->assertEquals(constant('IMAGETYPE_JPEG'), $type);
         } else {
             $this->assertEquals('jpg', pathinfo($file, PATHINFO_EXTENSION));
         }
+        $this->assertEquals($extension, pathinfo($file, PATHINFO_EXTENSION));
         if (file_exists($file)) {
             unlink($file);
         }

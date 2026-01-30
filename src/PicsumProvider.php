@@ -43,7 +43,7 @@ class PicsumProvider extends BaseProvider
     {
         $url = static::picsumUrl($width, $height, $id, $randomize, $gray, $blur, $imageExtension);
 
-        return DownloaderHelper::fetchImage($url, $dir, $fullPath);
+        return DownloaderHelper::fetchImage($url, $dir, $fullPath, $imageExtension);
     }
 
     /**
