@@ -41,8 +41,8 @@ $path = $faker->picsum(null, 400, 400, true); // /tmp/72c04225dd87efc261d29d3a05
 
 // Signature
 // picsumUrl($width = 640, $height = 480, $id = null, $randomize = true, $gray = false, $blur = null, $static = false, $imageExtension = null)
-// picsumStaticRandomUrl($width = 640, $height = 480, $gray = false, $blur = null, $imageExtension)
-// picsum($dir = null, $width = 640, $height = 480, $fullPath = true, $id = null, $randomize = true, $gray = false, $blur = null, $imageExtension)
+// picsumStaticRandomUrl($width = 640, $height = 480, $gray = false, $blur = null, $imageExtension = null)
+// picsum($dir = null, $width = 640, $height = 480, $fullPath = true, $id = null, $randomize = true, $gray = false, $blur = null, $imageExtension = null)
 
 // lorem space
 // you can use a self owned service, if there are problems with default one
