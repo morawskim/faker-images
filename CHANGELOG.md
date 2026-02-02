@@ -1,6 +1,11 @@
 # Changelog
 
-## 0.9.1
+## 0.9.2
+
+* run test also on PHP 8.5
+* [Picsum - add support for downloading webp image extension](https://github.com/morawskim/faker-images/pull/14)
+
+* ## 0.9.1
 
 * Change domain for FakeImg provider
 
