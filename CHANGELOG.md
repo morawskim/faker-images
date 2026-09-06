@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.3
+
+* Change domain for FakeImg provider (fakeimg.ryd.tools is down)
+
 ## 0.9.2
 
 * run test also on PHP 8.5
