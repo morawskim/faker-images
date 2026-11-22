@@ -71,6 +71,9 @@ jobs:
           - php-version: 8.5
             xdebug: "xdebug"
             prefer-lowest: ""
+          - php-version: 8.6
+            xdebug: "xdebug"
+            prefer-lowest: ""
     services:
       loremspace:
         image: morawskim/lorem-space-backend
